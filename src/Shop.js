@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Shop() {
   useEffect(() => {
     getItems();
-  }, [])
+  }, []);
 
   const [items, setItems] = useState([]);
 
@@ -12,8 +12,8 @@ function Shop() {
     const response = await fetch('https://fortnite-api.theapinetwork.com/upcoming/get');
     const data = await response.json();
     console.log(data.data);
-    setItems(data.data.slice(0,15))
-  }
+    setItems(data.data.slice(0, 15));
+  };
 
   return (
     <div>

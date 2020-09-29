@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Shop from './Shop';
+import Item from './ItemDetails';
 
 function App() {
   return (
@@ -30,8 +31,11 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/shop'>
+          <Route path='/shop' exact>
             <Shop />
+          </Route>
+          <Route path='/shop/:id'>
+            <Item />
           </Route>
         </Switch>
       </Router>
