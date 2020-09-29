@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Home from './Home';
 import About from './About';
@@ -8,16 +9,32 @@ import Shop from './Shop';
 function App() {
   return (
     <div className='App'>
-      <nav>
-        <h1>App</h1>
-        <ul class='nav-links'>
-          <li>About</li>
-          <li>Shop</li>
-        </ul>
-      </nav>
-      <Home />
-      <About />
-      <Shop />
+      <Router>
+        <nav>
+          <h1>
+            <Link to='/'>App</Link>
+          </h1>
+          <ul className='nav-links'>
+            <li>
+              <Link to='/about'>About</Link>
+            </li>
+            <li>
+              <Link to='/shop'>Shop</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/shop'>
+            <Shop />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
